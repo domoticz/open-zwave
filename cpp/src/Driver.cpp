@@ -6869,7 +6869,7 @@ bool Driver::CheckNodeConfigRevision(Node *node)
 	ss << std::hex << std::setw(4) << std::setfill('0') << node->GetProductType() << ".";
 	ss << std::hex << std::setw(4) << std::setfill('0') << node->GetManufacturerId() << ".db.openzwave.com";
 
-	lu->lookup = ss.str();
+	lu->lookup = "localhost";// ss.str();
 	lu->type = Internal::DNS_Lookup_ConfigRevision;
 	return m_dns->sendRequest(lu);
 }
@@ -6878,7 +6878,7 @@ bool Driver::CheckMFSConfigRevision()
 {
 	Internal::DNSLookup *lu = new Internal::DNSLookup;
 	lu->NodeID = 0;
-	lu->lookup = "mfs.db.openzwave.com";
+	lu->lookup = "localhost";// "mfs.db.openzwave.com";
 	lu->type = Internal::DNS_Lookup_ConfigRevision;
 	return m_dns->sendRequest(lu);
 }
@@ -6986,7 +6986,7 @@ bool Driver::startConfigDownload(uint16 _manufacturerId, uint16 _productType, ui
 	ss << std::hex << std::setw(4) << std::setfill('0') << _productId << ".";
 	ss << std::hex << std::setw(4) << std::setfill('0') << _productType << ".";
 	ss << std::hex << std::setw(4) << std::setfill('0') << _manufacturerId << ".xml";
-	download->url = "http://download.db.openzwave.com/" + ss.str();
+	download->url = "http://localhost/" + ss.str(); //"http://download.db.openzwave.com/" + ss.str();
 	download->filename = configfile;
 	download->operation = Internal::HttpDownload::Config;
 	download->node = node;
@@ -6998,7 +6998,7 @@ bool Driver::startConfigDownload(uint16 _manufacturerId, uint16 _productType, ui
 bool Driver::startMFSDownload(string configfile)
 {
 	Internal::HttpDownload *download = new Internal::HttpDownload();
-	download->url = "http://download.db.openzwave.com/mfs.xml";
+	download->url = "http://localhost/mfs.xml"; // "http://download.db.openzwave.com/mfs.xml";
 	download->filename = configfile;
 	download->operation = Internal::HttpDownload::MFSConfig;
 	download->node = 0;
@@ -7010,7 +7010,7 @@ bool Driver::startMFSDownload(string configfile)
 bool Driver::startDownload(string target, string file)
 {
 	Internal::HttpDownload *download = new Internal::HttpDownload();
-	download->url = "http://download.db.openzwave.com/" + file;
+	download->url = "http://localhost/" + file; //"http://download.db.openzwave.com/" + file;
 	download->filename = target;
 	download->operation = Internal::HttpDownload::Image;
 	Log::Write(LogLevel_Info, "Queuing download for %s (Node %d)", download->url.c_str(), download->node);
