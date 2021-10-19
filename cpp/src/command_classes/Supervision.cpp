@@ -52,12 +52,11 @@ namespace OpenZWave
 					m_sessions.pop_front();
 				}
 
-				m_sessions.push_back({
-					.session_id = m_last_session_id, 
-					.command_class_id = _command_class_id,
-					.index = _index
-				});
-
+				s_Session ssesion;
+				ssesion.session_id = m_last_session_id;
+				ssesion.command_class_id = _command_class_id;
+				ssesion.index = _index;
+				m_sessions.push_back(ssesion);
 				return m_last_session_id;
 			}
 
