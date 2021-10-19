@@ -390,6 +390,14 @@
     <ClInclude Include="..\..\..\src\command_classes\SimpleAVCommandItem.h">
       <Filter>Command Classes</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\CompatOptionManager.h" />
+    <ClInclude Include="..\..\..\src\SensorMultiLevelCCTypes.h" />
+    <ClInclude Include="..\..\..\src\TimerThread.h" />
+    <ClInclude Include="..\..\..\src\Localization.h" />
+    <ClInclude Include="..\..\..\src\command_classes\SoundSwitch.h" />
+    <ClInclude Include="..\..\..\src\command_classes\Supervision.h">
+      <Filter>Command Classes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\Driver.cpp">
@@ -747,6 +755,16 @@
       <Filter>Command Classes</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\command_classes\SimpleAVCommandItem.cpp">
+      <Filter>Command Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\CompatOptionManager.cpp" />
+    <ClCompile Include="..\..\..\src\TimerThread.cpp" />
+    <ClCompile Include="..\..\..\src\Localization.cpp" />
+    <ClCompile Include="..\..\..\src\NotificationCCTypes.cpp" />
+    <ClCompile Include="..\..\..\src\SensorMultiLevelCCTypes.cpp" />
+    <ClCompile Include="..\..\..\src\value_classes\ValueID.cpp" />
+    <ClCompile Include="..\..\..\src\command_classes\SoundSwitch.cpp" />
+    <ClCompile Include="..\..\..\src\command_classes\Supervision.cpp">
       <Filter>Command Classes</Filter>
     </ClCompile>
   </ItemGroup>
